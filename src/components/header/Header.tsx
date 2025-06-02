@@ -32,9 +32,8 @@ export default function Header() {
         method: "POST",
         body: formData,
       });
-
       const data = await res.json();
-      setPrediction(`Prediksi: ${data.prediction}`);
+      setPrediction(data.predictions);
     } catch (error) {
       console.error("Upload error:", error);
       setPrediction("Gagal memuat hasil prediksi.");
@@ -97,7 +96,12 @@ export default function Header() {
                 Deteksi!
               </button>
             </div>
-            <p className="mt-4">{prediction}</p>
+              {prediction &&
+                prediction.map((item: any, index: number) => (
+                  <div key={index}>
+                    {item.class}: {item.confidence}%
+                  </div>
+                ))}
           </div>
         </div>
       </div>
