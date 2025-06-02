@@ -9,7 +9,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="absolute h-full top-0 z-50 w-full">
+    <div className="absolute h-full top-0 z-1 w-full">
       <div className="sticky top-0 bg-[#008240] shadow-xl">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between text-white">
           <Link href="/" className="text-2xl font-semibold">
