@@ -1,4 +1,4 @@
-export const tutorial = [
+export const TUTORIAL = [
   {
     name: "1. Unggah Gambar",
     description:
@@ -8,7 +8,7 @@ export const tutorial = [
   {
     name: "2. Analisis Gambar",
     description:
-      "Sistem akan memproses gambar secara otomatis menggunakan teknologi computer vision.",
+      "Sistem akan memproses gambar secara otomatis menggunakan teknologi Computer Vision.",
       picture: '/icon/tutorial/process.png'
   },
   {

@@ -1,4 +1,4 @@
-export const menu = [
+export const MENU_OPTIONS = [
   {
     name: "Beranda",
     href: "#beranda",
