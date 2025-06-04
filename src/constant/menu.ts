@@ -4,11 +4,11 @@ export const MENU_OPTIONS = [
     href: "#beranda",
   },
   {
-    name: "Tutorial",
-    href: "#tutorial",
-  },
-  {
     name: "Informasi",
     href: "#informasi",
+  },
+  {
+    name: "Tutorial",
+    href: "#tutorial",
   },
 ];

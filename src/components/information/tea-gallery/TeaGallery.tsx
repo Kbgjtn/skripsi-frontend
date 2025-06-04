@@ -1,6 +1,6 @@
 "use client";
 
-import { teaDiseases } from "@/constant/diseases";
+import { DISEASES } from "@/constant/diseases";
 import React, { useState } from "react";
 import TeaDetails from "../tea-details/TeaDetails";
 import { TeaDisease } from "@/types/tea-types";
@@ -12,7 +12,7 @@ export default function TeaGallery() {
   return (
     <div className="flex justify-between">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {teaDiseases.map((item, index) => (
+        {DISEASES.map((item, index) => (
           <Image
             src={item.image}
             alt={`${item.name}`}

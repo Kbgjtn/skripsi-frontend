@@ -1,11 +1,11 @@
-export const teaDiseases = [
+export const DISEASES = [
   {
     id: 1,
     name: "Algal Spot",
     slug: "algal_spot",
     description:
-      "Penyakit yang disebabkan oleh alga hijau (Cephaleuros virescens), muncul sebagai bercak merah-oranye di permukaan daun.",
-    cause: "Alga parasit Cephaleuros virescens",
+      "Algal spot merupakan penyakit yang menyerang tanaman teh yang disebabkan oleh alga Cephaleuros virescens. Daun teh yang mengidap penyakit ini memiliki gejala berupa bercak yang menonjol, berbentuk bulat, berwarna oranye hingga cokelat tua yang tersebar di permukaan daun",
+    // cause: "Alga parasit Cephaleuros virescens",
     image: "/disease/algal-spot.jpg",
   },
   {
@@ -13,8 +13,8 @@ export const teaDiseases = [
     name: "Brown Blight",
     slug: "brown_blight",
     description:
-      "Penyakit jamur yang ditandai dengan bercak coklat meluas di daun, dapat menyebabkan daun gugur dini.",
-    cause: "Jamur Colletotrichum camelliae",
+      "Brown blight adalah penyakit umum pada tanaman teh di Asia dan Pasifik. Ciri utamanya berupa bercak kuning kehijauan yang berubah jadi coklat tua, muncul dari tepi daun lalu menyebar ke dalam. Seiring waktu, tubuh buah hitam terbentuk dan bercak menyatu, menyebabkan daun muda mengering dan mati.",
+    // cause: "Jamur Colletotrichum camelliae",
     image: "/disease/brown-blight.jpg",
   },
   {
@@ -23,7 +23,7 @@ export const teaDiseases = [
     slug: "gray_blight",
     description:
       "Infeksi yang menimbulkan bercak abu-abu pada daun, biasanya menyerang daun-daun yang sudah tua.",
-    cause: "Jamur Pestalotiopsis theae",
+    // cause: "Jamur Pestalotiopsis theae",
     image: "/disease/gray-blight.jpg",
   },
   {
@@ -32,7 +32,7 @@ export const teaDiseases = [
     slug: "healthy",
     description:
       "Daun teh dalam kondisi sehat tanpa tanda-tanda infeksi atau penyakit.",
-    cause: null,
+    // cause: null,
     image: "/disease/healthy.jpg",
   },
   {
@@ -40,8 +40,8 @@ export const teaDiseases = [
     name: "Helopeltis",
     slug: "helopeltis",
     description:
-      "Kerusakan akibat serangga Helopeltis spp., ditandai dengan bercak hitam kecil dan lubang di daun.",
-    cause: "Hama serangga Helopeltis theivora (mosquito bug)",
+      "Helopeltis merupakan sebuah serangga hama yang menjadi ancaman bagi berbagai tanaman budidaya di Asia, termasuk tanaman teh. Hama ini merusak tanaman inangnya dengan cara menghisap cairan, yang menghasilkan munculnya bercak coklat atau tusukan kecil pada permukaan tanaman",
+    // cause: "Hama serangga Helopeltis theivora (mosquito bug)",
     image: "/disease/helopeltis.jpg",
   },
   {
@@ -49,8 +49,8 @@ export const teaDiseases = [
     name: "Leaf Rust",
     slug: "leaf-rust",
     description:
-      "Penyakit jamur yang memunculkan pustula berwarna oranye sampai coklat pada permukaan daun.",
-    cause: "Jamur Aecidium camelliae",
+      "Leaf rust merupakan salah satu gangguan pada tanaman teh yang ditandai dengan munculnya bercak putih pada permukaan daun. Penyakit ini sering dikaitkan dengan alga Cephaleuros sp.",
+    // cause: "Jamur Aecidium camelliae",
     image: "/disease/leaf-rust.jpg",
   },
   {
@@ -58,9 +58,9 @@ export const teaDiseases = [
     name: "Red Spot",
     slug: "red_spot",
     description:
-      "Penyakit yang menyebabkan munculnya bercak merah pada daun, sering dikaitkan dengan kondisi lingkungan yang tidak optimal.",
-    cause:
-      "Kemungkinan akibat jamur atau kondisi fisiologis (stress lingkungan)",
+      "Red spot merupakan istilah yang merujuk pada gejala bercak merah yang muncul pada daun teh. Red spot pada tanaman teh disebabkan oleh jamur Phoma theicola Petch",
+    // cause:
+    // "Kemungkinan akibat jamur atau kondisi fisiologis (stress lingkungan)",
     image: "/disease/red-spot.jpg",
   },
   {
@@ -68,8 +68,8 @@ export const teaDiseases = [
     name: "Red Rust",
     slug: "red-rust",
     description:
-      "Infeksi oleh alga parasit yang menyebabkan bercak merah-oranye seperti karat pada daun dan batang muda.",
-    cause: "Alga parasit Cephaleuros parasiticus",
+      "Penyakit red rust merupakan penyakit pada tanaman teh yang disebabkan oleh alga Cephaleuros parasiticus Karst. Penyakit ini ditandai dengan munculnya bercak-bercak berwarna merah atau oranye pada permukaan daun.",
+    // cause: "Alga parasit Cephaleuros parasiticus",
     image: "/disease/red-rust.jpg",
   },
   {
@@ -77,8 +77,8 @@ export const teaDiseases = [
     name: "Red Spider Infested",
     slug: "red-spider-infested",
     description:
-      "Kerusakan akibat tungau merah (red spider mites), yang menyebabkan daun berubah warna dan mengering.",
-    cause: "Tungau Oligonychus coffeae (red spider mite)",
+      "Red Spider Mite (Oligonychus coffeae Nietner) merupakan salah satu hama utama yang menyerang tanaman teh.",
+    // cause: "Tungau Oligonychus coffeae (red spider mite)",
     image: "/disease/red-spider-infested.jpg",
   },
   {
@@ -86,8 +86,8 @@ export const teaDiseases = [
     name: "White Spot",
     slug: "white-spot",
     description:
-      "Bercak putih kecil di daun yang bisa disebabkan oleh infeksi jamur atau gangguan fisiologis.",
-    cause: "Kemungkinan jamur atau defisiensi nutrisi",
+      "White spot merupakan istilah visual yang merujuk pada munculnya bercak berwarna putih pada permukaan daun teh. White spot pada tanaman teh disebabkan oleh jamur Phyllosticta theicola",
+    // cause: "Kemungkinan jamur atau defisiensi nutrisi",
     image: "/disease/white-spot.jpg",
   },
 ];
