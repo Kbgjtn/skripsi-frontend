@@ -48,7 +48,7 @@ const SLIDER_SETTINGS = {
 export default function Tutorial() {
   return (
     <div id="tutorial" className="bg-white ">
-      <Image src={WavesBlurredDivider} alt="" className="w-full" />
+      <Image src={WavesBlurredDivider} alt="" className="w-full -mt-1" />
       <div className="flex flex-col gap-[24px] px-[24px] md:px-[72px] lg:px-[108px] py-[48px]">
         <p className="font-poppins text-[30px] sm:text-[36px] lg:text-[48px] font-bold text-[#2a2c35] w-full text-center">
           Panduan penggunaan website

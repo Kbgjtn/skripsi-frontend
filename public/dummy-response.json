@@ -1,0 +1,19 @@
+{
+  "predictions": [
+    {
+      "class": "Brown Blight",
+      "confidence": 87.3,
+      "description": "Brown blight menyebabkan bercak kuning kehijauan yang berubah jadi coklat tua. Biasanya muncul dari tepi daun dan menyebar ke tengah."
+    },
+    {
+      "class": "Grey Blight",
+      "confidence": 74.6,
+      "description": "Grey blight ditandai dengan bercak abu-abu berbentuk tidak beraturan. Penyakit ini bisa menyebar cepat terutama saat kondisi lembab."
+    },
+    {
+      "class": "Algal Leaf Spot",
+      "confidence": 65.1,
+      "description": "Penyakit ini muncul sebagai bercak oranye atau merah kecoklatan akibat infeksi alga. Umumnya menyerang permukaan atas daun muda."
+    }
+  ]
+}

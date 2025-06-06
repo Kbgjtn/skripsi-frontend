@@ -9,13 +9,19 @@ import SectionDivider from "../../../public/waves.svg";
 import useIsMobile from "@/hooks/isMobile";
 import InformationModal from "./information-modal/InformationModal";
 
-export default function Information() {
+interface Props {
+  divider?: boolean;
+}
+
+export default function Information({ divider = true }: Props) {
   const [information, setInformation] = useState<TeaDisease | null>(null);
   const isMobile = useIsMobile();
 
   return (
     <div className="bg-[#e6ddc5]" id="informasi">
-      <Image src={SectionDivider} alt="" className="w-full relative" />
+      {divider && (
+        <Image src={SectionDivider} alt="" className="w-full relative" />
+      )}
       <div className="flex flex-col px-6 md:px-12 lg:px-24 pb-12 gap-12">
         <p className="font-poppins text-3xl md:text-4xl lg:text-5xl font-bold text-[#3b2f23]">
           Kenali Penyakitnya!

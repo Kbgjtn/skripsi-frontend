@@ -1,11 +1,17 @@
 "use client";
 
 import { predict } from "@/services/api";
+import { usePredictionStore } from "@/store/prediction-store";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useRef, useState } from "react";
 
 export default function DetectionWrapper() {
+  const router = useRouter();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const setPredictionData = usePredictionStore(
+    (state) => state.setPredictionData,
+  );
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -25,7 +31,8 @@ export default function DetectionWrapper() {
     try {
       setIsLoading(true);
       const response = await predict(selectedFile);
-      console.log("response here: ", response);
+      setPredictionData(response ?? []);
+      router.push("/hasil");
     } catch (error) {
       console.error("Prediction error:", error);
     } finally {
