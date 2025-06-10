@@ -7,10 +7,11 @@ import SectionDivider from "../../../public/book.svg";
 
 export default function Results({ data }) {
   const [animate, setAnimate] = useState(false);
-  const otherDiseases = data.slice(1, 3);
+  const { predictions, path } = data;
+  const otherDiseases = predictions.slice(1, 3);
 
-  const formattedPredictionName = data[0]
-    ? `Penyakit: ${data[0].class} - ${data[0].confidence.toFixed(1)}%`
+  const formattedPredictionName = predictions[0]
+    ? `Penyakit: ${predictions[0].class_name} - ${(predictions[0].confidence * 100).toFixed(1)}%`
     : "";
 
   useEffect(() => {
@@ -26,25 +27,22 @@ export default function Results({ data }) {
         </h1>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left - Image */}
           <div className="lg:w-1/2 flex justify-center">
             <Image
-              src={Placeholder}
+              src={path ? `https://thesis-rest.30zy.pro/${path}` : Placeholder}
               alt="detected-disease"
               width={240}
               height={240}
               className="rounded-lg border"
             />
           </div>
-
-          {/* Right - Info */}
           <div className="lg:w-1/2">
             <p className="font-poppins text-lg font-semibold text-green-700 mb-2">
               {formattedPredictionName}
             </p>
-            <p className="font-poppins text-gray-700 mb-6 leading-relaxed">
+            {/* <p className="font-poppins text-gray-700 mb-6 leading-relaxed">
               {data[0]?.description || "-"}
-            </p>
+            </p> */}
 
             {otherDiseases.length > 0 && (
               <>
@@ -56,17 +54,19 @@ export default function Results({ data }) {
                     <div key={`${index}-${item.class}`}>
                       <div className="flex justify-between mb-1">
                         <p className="font-poppins text-gray-700">
-                          {item.class}
+                          {item.class_name}
                         </p>
                         <p className="font-poppins text-gray-500">
-                          {item.confidence.toFixed(1)}%
+                          {(item.confidence * 100).toFixed(1)}%
                         </p>
                       </div>
                       <div className="w-full bg-gray-300 rounded-full h-3 overflow-hidden">
                         <div
                           className="h-3 rounded-full bg-green-600 transition-all duration-700 ease-in-out"
                           style={{
-                            width: animate ? `${item.confidence}%` : "0%",
+                            width: animate
+                              ? `${(item.confidence * 100).toFixed(1)}%`
+                              : "0%",
                           }}
                         />
                       </div>

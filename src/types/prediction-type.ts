@@ -1,5 +1,15 @@
-export interface Prediction {
-  class: string;
+interface Prediction {
+  class_name: string;
   confidence: number;
-  description: string;
+}
+
+interface Results {
+  path: string;
+  predictions: Prediction[];
+  model: string;
+}
+
+export interface ImagePredictionResponse {
+  filename: string;
+  results: Results;
 }

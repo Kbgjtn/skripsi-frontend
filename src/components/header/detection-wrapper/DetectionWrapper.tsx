@@ -1,6 +1,6 @@
 "use client";
 
-import { predict } from "@/services/api";
+import { getPrediction } from "@/services/api";
 import { usePredictionStore } from "@/store/prediction-store";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -20,19 +20,20 @@ export default function DetectionWrapper() {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
+    if (!e.target.files) return;
+
+    const files = e.target.files[0];
+
+    setSelectedFile(files);
     // Nanti kasih handler, kalau input bukan image atau video nantinya bakal invalid.
-    if (file) {
-      setSelectedFile(file);
-    }
   };
 
   const handleProcess = async () => {
     if (!selectedFile) return;
     try {
       setIsLoading(true);
-      const response = await predict(selectedFile);
-      setPredictionData(response ?? []);
+      const response = await getPrediction(selectedFile);
+      setPredictionData(response);
       router.push("/hasil");
     } catch (error) {
       console.error("Prediction error:", error);
@@ -65,10 +66,11 @@ export default function DetectionWrapper() {
       <div className="flex flex-col sm:flex-row justify-center items-center gap-[16px] sm:gap-[24px] w-full z-1">
         <input
           type="file"
-          accept="image/*"
+          accept="image/*,video/*"
           ref={fileInputRef}
           onChange={handleFileChange}
           className="hidden"
+          multiple
         />
         <button
           className={`${isLoading ? "bg-[#c3c3c3] text-[#14231b] hover:cursor-not-allowed" : "bg-[#f4fffb] text-[#274534] hover:cursor-pointer "} font-poppins font-normal z-1 px-[36px] py-[10px] sm:px-[48px] sm:py-[12px] rounded-full hover:brightness-90 transition duration-300`}

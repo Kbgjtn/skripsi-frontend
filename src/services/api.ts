@@ -1,15 +1,9 @@
-// import DummyJson from "../../public/dummy-response.json";
-
-// const DUMMY = DummyJson.predictions;
-
-export async function predict(media: File) {
-  /* 
-    replace this with an actual API calls
-  */
+async function upload(media: File) {
   const formData = new FormData();
-  formData.append("image", media);
+  formData.append("file", media);
+
   try {
-    const response = await fetch("https://thesis-rest.30zy.pro/predict", {
+    const response = await fetch("https://thesis-rest.30zy.pro/upload", {
       method: "POST",
       body: formData,
     });
@@ -17,13 +11,32 @@ export async function predict(media: File) {
       throw new Error(`Server responded with ${response.status}`);
     }
     const data = await response.json();
-    console.log('data achieved: ', data)
     return data;
   } catch (error) {
     console.error("Upload error:", error);
     throw error;
   }
-  /*
-    i just wanna test the zustand state management here to forward the data to next page
-  */
+}
+
+async function predict(name: string) {
+  try {
+    const response = await fetch(
+      `https://thesis-rest.30zy.pro/predict/${name}`,
+    );
+    if (!response.ok) {
+      throw new Error(`Server responded with ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Predict error:", error);
+    throw error;
+  }
+}
+
+export async function getPrediction(media: File) {
+  const uploaded = await upload(media);
+  const predicted = await predict(uploaded?.filename);
+
+  return predicted;
 }

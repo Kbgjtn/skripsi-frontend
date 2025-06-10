@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ["thesis-rest.30zy.pro"],
+  },
 };
 
 export default nextConfig;

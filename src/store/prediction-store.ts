@@ -1,12 +1,21 @@
-import { Prediction } from "@/types/prediction-type";
+import { ImagePredictionResponse } from "@/types/prediction-type";
 import { create } from "zustand";
 
 interface PredictionProps {
-  prediction_data: Prediction[];
-  setPredictionData: (data: Prediction[]) => void;
+  prediction_data: ImagePredictionResponse;
+  setPredictionData: (data: ImagePredictionResponse) => void;
 }
 
+const defaultPredictionData: ImagePredictionResponse = {
+  filename: "",
+  results: {
+    path: "",
+    model: "",
+    predictions: [],
+  },
+};
+
 export const usePredictionStore = create<PredictionProps>((set) => ({
-  prediction_data: [],
+  prediction_data: defaultPredictionData,
   setPredictionData: (data) => set({ prediction_data: data }),
 }));
