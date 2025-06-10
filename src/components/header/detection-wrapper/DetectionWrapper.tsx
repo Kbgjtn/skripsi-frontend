@@ -21,6 +21,7 @@ export default function DetectionWrapper() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
+    // Nanti kasih handler, kalau input bukan image atau video nantinya bakal invalid.
     if (file) {
       setSelectedFile(file);
     }
