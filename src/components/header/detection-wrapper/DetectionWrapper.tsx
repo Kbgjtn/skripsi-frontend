@@ -50,12 +50,24 @@ export default function DetectionWrapper() {
       </p>
       {selectedFile && (
         <div className="flex justify-center items-center w-full">
-          <Image
-            src={URL.createObjectURL(selectedFile)}
-            alt={selectedFile.name}
-            width={200}
-            height={200}
-          />
+          {selectedFile.type.startsWith("image/") ? (
+            <Image
+              src={URL.createObjectURL(selectedFile)}
+              alt={selectedFile.name}
+              width={200}
+              height={200}
+            />
+          ) : selectedFile.type.startsWith("video/") ? (
+            <video
+              width={200}
+              height={200}
+              controls
+              src={URL.createObjectURL(selectedFile)}
+              className="rounded-lg"
+            />
+          ) : (
+            <p className="text-white font-poppins italic">File tidak didukung!</p>
+          )}
         </div>
       )}
       <p
@@ -63,7 +75,7 @@ export default function DetectionWrapper() {
       >
         File yang anda unggah: {selectedFile?.name}
       </p>
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-[16px] sm:gap-[24px] w-full z-1">
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-[16px] sm:gap-[24px] w-full">
         <input
           type="file"
           accept="image/*,video/*"
@@ -73,7 +85,7 @@ export default function DetectionWrapper() {
           multiple
         />
         <button
-          className={`${isLoading ? "bg-[#c3c3c3] text-[#14231b] hover:cursor-not-allowed" : "bg-[#f4fffb] text-[#274534] hover:cursor-pointer "} font-poppins font-normal z-1 px-[36px] py-[10px] sm:px-[48px] sm:py-[12px] rounded-full hover:brightness-90 transition duration-300`}
+          className={`${isLoading ? "bg-[#c3c3c3] text-[#14231b] hover:cursor-not-allowed" : "bg-[#f4fffb] text-[#274534] hover:cursor-pointer "} font-poppins font-normal px-[36px] py-[10px] sm:px-[48px] sm:py-[12px] rounded-full hover:brightness-90 transition duration-300`}
           onClick={handleButtonClick}
           disabled={isLoading}
         >
