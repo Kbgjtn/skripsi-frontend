@@ -1,0 +1,15 @@
+services:
+  tealeave-detection:
+    container_name: tealeave-detection
+    image: ghcr.io/coocobolo/thesis/tealeave-detection:latest
+    build:
+      context: .
+      dockerfile: "builds/Dockerfile"
+    restart: on-failure:3
+    env_file:
+      - .env
+    # expose:
+    #   - "3200"
+    # development
+    ports:
+      - "3000:3200"
