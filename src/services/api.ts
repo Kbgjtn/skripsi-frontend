@@ -19,9 +19,14 @@ async function upload(media: File) {
   }
 }
 
-async function predict(name: string) {
+async function predict(name: string, imageSize: number) {
   try {
-    const response = await fetch(`${apiUrl}/predict/${name}`);
+    const params = new URLSearchParams();
+    params.append("imgsz", imageSize.toString());
+
+    const response = await fetch(
+      `${apiUrl}/predict/${name}?${params.toString()}`,
+    );
     if (!response.ok) {
       throw new Error(`Server responded with ${response.status}`);
     }
@@ -33,9 +38,9 @@ async function predict(name: string) {
   }
 }
 
-export async function getPrediction(media: File) {
+export async function getPrediction(media: File, imageSize: number) {
   const uploaded = await upload(media);
-  const predicted = await predict(uploaded?.filename);
+  const predicted = await predict(uploaded?.filename, imageSize);
 
   return predicted;
 }

@@ -14,6 +14,7 @@ export default function DetectionWrapper() {
   );
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [imageSize, setImageSize] = useState<number>(224);
 
   const handleButtonClick = () => {
     fileInputRef.current?.click();
@@ -32,7 +33,7 @@ export default function DetectionWrapper() {
     if (!selectedFile) return;
     try {
       setIsLoading(true);
-      const response = await getPrediction(selectedFile);
+      const response = await getPrediction(selectedFile, imageSize);
       setPredictionData(response);
       router.push("/hasil");
     } catch (error) {
@@ -66,7 +67,9 @@ export default function DetectionWrapper() {
               className="rounded-lg"
             />
           ) : (
-            <p className="text-white font-poppins italic">File tidak didukung!</p>
+            <p className="text-white font-poppins italic">
+              File tidak didukung!
+            </p>
           )}
         </div>
       )}
@@ -75,6 +78,26 @@ export default function DetectionWrapper() {
       >
         File yang anda unggah: {selectedFile?.name}
       </p>
+
+      {selectedFile ? (
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-[16px] sm:gap-[24px] w-full">
+          <label htmlFor="imgsz" className="text-center text-white">
+            <strong>Select Image Size:</strong>
+          </label>
+          <input
+            type="range"
+            id="imgsz"
+            step={4}
+            max={1280}
+            min={32}
+            onChange={(v) => setImageSize(parseInt(v.target.value))}
+          />
+          <p className="text-white">
+            <strong>{imageSize}</strong>
+          </p>
+        </div>
+      ) : null}
+
       <div className="flex flex-col sm:flex-row justify-center items-center gap-[16px] sm:gap-[24px] w-full">
         <input
           type="file"
