@@ -6,6 +6,8 @@ import Placeholder from "../../../public/file.svg";
 import SectionDivider from "../../../public/book.svg";
 import { toTitleCase } from "@/utils/format-string";
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 export default function Results({ data }) {
   const [animate, setAnimate] = useState(false);
   const { predictions, path } = data;
@@ -34,7 +36,7 @@ export default function Results({ data }) {
               path.endsWith(".webm") ||
               path.endsWith(".mov") ? (
                 <video
-                  src={`https://thesis-rest.30zy.pro/${path}`}
+                  src={`${apiUrl}/${path}`}
                   width={240}
                   height={240}
                   controls
@@ -42,7 +44,7 @@ export default function Results({ data }) {
                 />
               ) : (
                 <Image
-                  src={`https://thesis-rest.30zy.pro/${path}`}
+                  src={`${apiUrl}/${path}`}
                   alt="detected-disease"
                   width={240}
                   height={240}
