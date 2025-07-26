@@ -1,9 +1,10 @@
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 async function upload(media: File) {
   const formData = new FormData();
   formData.append("file", media);
 
   try {
-    const response = await fetch("https://thesis-rest.30zy.pro/upload", {
+    const response = await fetch(`${apiUrl}/upload`, {
       method: "POST",
       body: formData,
     });
@@ -20,9 +21,7 @@ async function upload(media: File) {
 
 async function predict(name: string) {
   try {
-    const response = await fetch(
-      `https://thesis-rest.30zy.pro/predict/${name}`,
-    );
+    const response = await fetch(`${apiUrl}/predict/${name}`);
     if (!response.ok) {
       throw new Error(`Server responded with ${response.status}`);
     }
