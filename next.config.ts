@@ -1,13 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  basePath: "/deteksi-teh",
   images: {
     remotePatterns: [
-      // development
-      /* {
+      {
         protocol: "http",
         hostname: "**",
-      }, */
+      },
       {
         protocol: "https",
         hostname: "**",
