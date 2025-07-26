@@ -1,14 +1,14 @@
 export const MENU_OPTIONS = [
   {
     name: "Beranda",
-    href: "/#beranda",
+    href: "/deteksi-teh/#beranda",
   },
   {
     name: "Informasi",
-    href: "/#informasi",
+    href: "/deteksi-teh/#informasi",
   },
   {
     name: "Tutorial",
-    href: "/#tutorial",
+    href: "/deteksi-teh/#tutorial",
   },
 ];
