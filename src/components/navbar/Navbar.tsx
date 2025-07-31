@@ -9,7 +9,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="z-1  sticky top-0 md:px-[108px] px-[32px] py-[24px] w-full flex justify-between items-center bg-[#3a744e]">
+    <div className="z-2 sticky top-0 md:px-[108px] px-[32px] py-[24px] w-full flex justify-between items-center bg-[#3a744e]">
       <Link
         href="/"
         className="font-poppins font-bold text-[32px] md:text-[36px] text-[#f4fffb]"

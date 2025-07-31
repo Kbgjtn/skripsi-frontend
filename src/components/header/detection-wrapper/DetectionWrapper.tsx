@@ -108,7 +108,7 @@ export default function DetectionWrapper() {
           multiple
         />
         <button
-          className={`${isLoading ? "bg-[#c3c3c3] text-[#14231b] hover:cursor-not-allowed" : "bg-[#f4fffb] text-[#274534] hover:cursor-pointer "} font-poppins font-normal px-[36px] py-[10px] sm:px-[48px] sm:py-[12px] rounded-full hover:brightness-90 transition duration-300`}
+          className={`${isLoading ? "bg-[#c3c3c3] text-[#14231b] hover:cursor-not-allowed z-1" : "bg-[#f4fffb] text-[#274534] hover:cursor-pointer z-1"} font-poppins font-normal px-[36px] py-[10px] sm:px-[48px] sm:py-[12px] rounded-full hover:brightness-90 transition duration-300 z-1`}
           onClick={handleButtonClick}
           disabled={isLoading}
         >
@@ -118,8 +118,8 @@ export default function DetectionWrapper() {
           className={`overflow-hidden transition-all duration-300 ease-in-out
             ${
               selectedFile
-                ? "max-w-[500px] px-[36px] py-[10px] sm:px-[48px] sm:py-[12px] opacity-100"
-                : "max-w-0 px-0 py-0 opacity-0"
+                ? "max-w-[500px] px-[36px] py-[10px] sm:px-[48px] sm:py-[12px] opacity-100 z-1"
+                : "max-w-0 px-0 py-0 opacity-0 z-1"
             }
             bg-[#274534] text-white font-semibold rounded-full font-poppins hover:cursor-pointer`}
           onClick={handleProcess}
