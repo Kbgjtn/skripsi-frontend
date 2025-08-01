@@ -4,7 +4,7 @@ import { getPrediction } from "@/services/api";
 import { usePredictionStore } from "@/store/prediction-store";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 
 export default function DetectionWrapper() {
   const router = useRouter();
@@ -43,6 +43,27 @@ export default function DetectionWrapper() {
     }
   };
 
+  const SliderImage = useMemo(() => {
+    return selectedFile ? (
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-[16px] sm:gap-[24px] w-full">
+        <label htmlFor="imgsz" className="text-center text-white">
+          <strong>Select Image Size:</strong>
+        </label>
+        <input
+          type="range"
+          id="imgsz"
+          step={4}
+          max={1280}
+          min={32}
+          onChange={(v) => setImageSize(parseInt(v.target.value))}
+        />
+        <p className="text-white">
+          <strong>{imageSize}</strong>
+        </p>
+      </div>
+    ) : null;
+  }, [selectedFile, imageSize])
+
   return (
     <div className="flex flex-col gap-[12px] items-center lg:items-start">
       <p className="font-poppins text-[16px] sm:text-[20px] lg:text-[24px] text-[#f4fffb] text-center lg:text-left">
@@ -79,24 +100,7 @@ export default function DetectionWrapper() {
         File yang anda unggah: {selectedFile?.name}
       </p>
 
-      {selectedFile ? (
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-[16px] sm:gap-[24px] w-full">
-          <label htmlFor="imgsz" className="text-center text-white">
-            <strong>Select Image Size:</strong>
-          </label>
-          <input
-            type="range"
-            id="imgsz"
-            step={4}
-            max={1280}
-            min={32}
-            onChange={(v) => setImageSize(parseInt(v.target.value))}
-          />
-          <p className="text-white">
-            <strong>{imageSize}</strong>
-          </p>
-        </div>
-      ) : null}
+      {/* {SliderImage} */}
 
       <div className="flex flex-col sm:flex-row justify-center items-center gap-[16px] sm:gap-[24px] w-full">
         <input
