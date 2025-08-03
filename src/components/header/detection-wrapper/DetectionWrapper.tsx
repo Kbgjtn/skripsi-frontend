@@ -4,7 +4,7 @@ import { getPrediction } from "@/services/api";
 import { usePredictionStore } from "@/store/prediction-store";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useMemo, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 export default function DetectionWrapper() {
   const router = useRouter();
@@ -14,7 +14,7 @@ export default function DetectionWrapper() {
   );
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [imageSize, setImageSize] = useState<number>(224);
+  const imageSize = 224;
 
   const handleButtonClick = () => {
     fileInputRef.current?.click();
@@ -43,7 +43,7 @@ export default function DetectionWrapper() {
     }
   };
 
-  const SliderImage = useMemo(() => {
+  /* const SliderImage = useMemo(() => {
     return selectedFile ? (
       <div className="flex flex-col sm:flex-row justify-center items-center gap-[16px] sm:gap-[24px] w-full">
         <label htmlFor="imgsz" className="text-center text-white">
@@ -62,7 +62,7 @@ export default function DetectionWrapper() {
         </p>
       </div>
     ) : null;
-  }, [selectedFile, imageSize])
+  }, [selectedFile, imageSize]); */
 
   return (
     <div className="flex flex-col gap-[12px] items-center lg:items-start">
